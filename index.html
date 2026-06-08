@@ -44,18 +44,17 @@
   .tile .s{font-size:9.5px; color:var(--muted); margin-top:1px;}
 
   .chart{background:#fff; border:1px solid var(--line); border-radius:6px; padding:9px 10px 7px; margin-top:7px;}
-  .chart .cap{font-size:9px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:3px;}
+  .chart .cap{font-size:9px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:600;}
+  .chart .sub{font-size:8.5px; color:var(--muted); margin:1px 0 3px;}
   .chart .lbl{display:flex; justify-content:space-between; font-size:9px; color:var(--muted); margin-top:2px;}
 
   .tl-head{font-size:12.5px; margin:11px 0 5px; padding-bottom:4px; border-bottom:1px solid var(--line);}
-  .tl-row{display:grid; grid-template-columns:62px 1fr; gap:8px; font-size:10px; padding:3px 0; border-bottom:1px dashed var(--line); align-items:start;}
+  .tl-row{display:grid; grid-template-columns:70px 1fr; gap:8px; font-size:10px; padding:3px 0; border-bottom:1px dashed var(--line); align-items:start;}
   .tl-row:last-child{border-bottom:0;}
   .tl-row .d{font-weight:600; color:var(--muted); font-size:9px; padding-top:1px;}
   .tl-row .e b{color:var(--ink);}
   .dot{color:var(--ox); font-weight:700;}
   .dot.n{color:var(--muted);}
-  .tlnote{font-size:9.5px; color:var(--muted); margin-top:5px; line-height:1.4;}
-  .tlnote b{color:var(--ink);}
 
   .reason{margin-bottom:9px;}
   .reason h3{font-family:"IBM Plex Sans"; font-weight:600; font-size:11.5px; display:flex; gap:7px; align-items:baseline;}
@@ -78,7 +77,16 @@
   .foot h3{font-size:11px; margin-bottom:4px;}
   .foot p{font-size:10.5px; color:#3A3833; line-height:1.5;}
   .foot p b{color:var(--ink);}
-  .prov{margin-top:8px; font-size:10px; color: #5C4209; border-top:1px solid var(--line); padding-top:6px; line-height:1.5;}
+
+  /* prominent regulatory note */
+  .regnote{display:flex; gap:11px; align-items:flex-start; background:var(--amber-bg); border:1px solid #E8D7AE;
+           border-left:5px solid var(--amber); border-radius:7px; padding:10px 14px; margin-top:12px;}
+  .regnote .ic{font-family:"Fraunces",serif; font-weight:600; font-size:18px; color:var(--amber); line-height:1; flex-shrink:0;}
+  .regnote .lbl{font-size:9px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--amber);}
+  .regnote p{font-size:10.5px; color:#5C4209; line-height:1.5; margin-top:2px;}
+  .regnote p b{color:var(--amber);}
+
+  .prov{margin-top:8px; font-size:8.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:6px; line-height:1.5;}
 
   @media print{
     body{background:#fff; padding:0;}
@@ -125,41 +133,45 @@
         <div class="tile">
           <div class="k">Posição média</div>
           <div class="v bad">21 → 43</div>
-          <div class="s">em apenas 1200 páginas indexadas</div>
+          <div class="s">degradação contínua</div>
         </div>
         <div class="tile">
           <div class="k">Authority Score</div>
           <div class="v">23</div>
-          <div class="s">para referência, o casa-aposats.com tem 24 e está abandonado.</div>
+          <div class="s">autoridade de domínio baixa</div>
         </div>
         <div class="tile">
           <div class="k">Páginas indexadas</div>
           <div class="v bad">35%</div>
-          <div class="s">Google rejeita ativamente 65% do site</div>
+          <div class="s">Google não indexa 65% do site</div>
         </div>
       </div>
 
       <div class="chart">
         <div class="cap">Cliques orgânicos / mês · Fev 2025 → Mai 2026</div>
-        <svg viewBox="0 0 300 80" width="100%" height="76" role="img"
-             aria-label="Curva de cliques a cair de 8945 para 334 ao longo de 16 meses">
-          <line x1="47" y1="3" x2="47" y2="72" stroke="#9E2B1C" stroke-width="1" stroke-dasharray="2,2" opacity=".45"/>
-          <line x1="197" y1="3" x2="197" y2="72" stroke="#9E2B1C" stroke-width="1" stroke-dasharray="2,2" opacity=".3"/>
+        <div class="sub">Faixas sombreadas = janelas de rollout dos core updates (dias a semanas)</div>
+        <svg viewBox="0 0 300 84" width="100%" height="80" role="img"
+             aria-label="Curva de cliques a cair de 8945 para 334 ao longo de 16 meses, com quedas a coincidir com os core updates de Março e Dezembro de 2025">
+          <rect x="101" y="4" width="12" height="74" fill="#8A5A0B" opacity="0.07"/>
+          <rect x="268" y="4" width="10" height="74" fill="#9E2B1C" opacity="0.07"/>
+          <rect x="36"  y="4" width="9"  height="74" fill="#9E2B1C" opacity="0.16"/>
+          <rect x="203" y="4" width="11" height="74" fill="#9E2B1C" opacity="0.16"/>
           <polyline fill="none" stroke="#9E2B1C" stroke-width="2" stroke-linejoin="round"
-            points="10,7 28,8.5 47,39 65,37 84,48 103,43 122,33 141,41 160,49 178,55 197,61 216,67 234,68 253,66 272,69 290,70"/>
-          <circle cx="47" cy="39" r="2.4" fill="#9E2B1C"/>
-          <text x="49" y="14" font-size="6.5" fill="#9E2B1C" font-family="IBM Plex Sans">↓ Core Mar 2025</text>
-          <text x="133" y="72" font-size="6.5" fill="#9E2B1C" font-family="IBM Plex Sans">↓ Core Dez 2025</text>
+            points="10,9 28,10.5 47,41 65,39 84,50 103,45 122,35 141,43 160,51 178,57 197,63 216,69 234,70 253,68 272,71 290,72"/>
+          <circle cx="47" cy="41" r="2.4" fill="#9E2B1C"/>
+          <circle cx="216" cy="69" r="2.2" fill="#9E2B1C"/>
+          <text x="3"   y="15" font-size="6.5" fill="#9E2B1C" font-family="IBM Plex Sans">Core Mar 2025</text>
+          <text x="168" y="80" font-size="6.5" fill="#9E2B1C" font-family="IBM Plex Sans">Core Dez 2025</text>
         </svg>
         <div class="lbl"><span>Fev 2025</span><span>Mai 2026</span></div>
       </div>
 
-      <h2 class="tl-head">4 core updates consecutivos, zero recuperação</h2>
+      <h2 class="tl-head">5 core updates consecutivos, zero recuperação</h2>
       <div>
         <div class="tl-row"><div class="d">Mar 2025</div><div class="e"><span class="dot">▼</span> <b>Hit principal.</b> −49% no mês seguinte. Nunca recuperou.</div></div>
-        <div class="tl-row"><div class="d">Jul 2025</div><div class="e"><span class="dot n">—</span> Update neutro. Sem bounce, ao contrário de muitos pares de mercado.</div></div>
+        <div class="tl-row"><div class="d">Jun 2025</div><div class="e"><span class="dot n">—</span> Update neutro. Sem bounce, ao contrário de muitos pares de mercado.</div></div>
         <div class="tl-row"><div class="d">Dez 2025</div><div class="e"><span class="dot">▼</span> <b>Segunda queda.</b> Posição 28 → 52.</div></div>
-        <div class="tl-row"><div class="d">Mar–Mai 2026</div><div class="e"><span class="dot">▼</span> Continua a descer. Estado atual: residual.</div></div>
+        <div class="tl-row"><div class="d">Mar + Mai 2026</div><div class="e"><span class="dot">▼</span> Dois updates. Continua a descer. Estado atual: residual.</div></div>
       </div>
     </div>
 
@@ -168,8 +180,8 @@
 
       <div class="reason">
         <h3><span class="n">1</span> Tráfego em colapso e sem audiência comercial</h3>
-        <p>A queda é <b>algorítmica e ao nível do site</b> — 65% das páginas rejeitadas pelo Google,
-        4 updates sem bounce. Do tráfego que resta, <b>apenas 26% tem intenção comercial</b>;
+        <p>A queda é <b>algorítmica e ao nível do site</b> — 65% das páginas não indexadas,
+        5 updates sem bounce. Do tráfego que resta, <b>apenas 26% tem intenção comercial</b>;
         68% são free-play e conteúdo informativo. As páginas de afiliação rankeiam entre
         as posições 20–68 com CTR de 0,3–2,6%.</p>
       </div>
@@ -178,7 +190,8 @@
         <h3><span class="n">2</span> Perfil de backlinks tóxico — risco herdado</h3>
         <p><b>~95% dos 25.500 links são spam</b> (redes no Telegram, alguns de sites
         hackeados), a apontar às páginas de bónus. O Google já regista este histórico.
-        Disavow extenso necessário</p>
+        Disavow extenso necessário, sem garantia de reversão — o custo de limpeza
+        soma-se ao custo de recuperação algorítmica.</p>
       </div>
 
       <div class="reason">
@@ -190,11 +203,11 @@
       </div>
 
       <div class="cond">
-        <div class="t">Quanto custaria recuperar este ativo</div>
-        <p>Disavow + recuperação de core update: <b>6–18 meses, sem garantia</b>.
-        Reconstrução da arquitetura de conteúdo: igual ao esforço de um site novo.
-        Num domínio limpo, os primeiros resultados em páginas comerciais chegam
-        <b>em 3–6 meses</b> — com menos risco e sem passivo herdado.</p>
+        <div class="t">Recuperar custa mais do que começar de novo</div>
+        <p>Reabilitar exige tudo o que um site novo exige — <b>reconstruir a arquitetura de conteúdo
+        de raiz</b> — e <b>ainda</b> disavow e reversão da demoção algorítmica (6–18 meses, sem garantia).
+        Mais esforço, para um resultado incerto. Num domínio limpo, o mesmo investimento constrói
+        autoridade em vez de combater supressão.</p>
       </div>
     </div>
   </div>
@@ -202,16 +215,39 @@
   <div class="rec">
     <div class="rbadge">Recomendação SEO</div>
     <div class="rtxt">
-      <b>Usar os contratos de afiliação num domínio limpo.</b> Do ponto de vista SEO,
-      partir do zero supera qualquer recuperação: sem histórico tóxico de backlinks,
-      arquitetura construída para converter desde o primeiro dia, e autoridade
-      desenvolvida para os tópicos certos. O ativo relevante são os contratos — não o domínio.
+      <b>Usar os contratos de afiliação num domínio limpo.</b> Partir do zero exige menos esforço
+      do que recuperar este ativo e tem trajetória previsível: sem histórico tóxico de backlinks,
+      arquitetura construída para converter, e autoridade desenvolvida para os tópicos certos.
+      O ativo relevante são os contratos — não este domínio.
+    </div>
+  </div>
+
+  <div class="foot">
+    <div>
+      <h3>Próximo passo (SEO)</h3>
+      <p>Definir arquitetura de hub para o domínio limpo: páginas de comparação como produto central,
+      alimentadas por conteúdo editorial de funil. <b>Tração comercial previsível em 6–12 meses</b>, em trajetória ascendente.</p>
+    </div>
+    <div>
+      <h3>Para equipa comercial / legal</h3>
+      <p>Validar os contratos de afiliação existentes e a estrutura da oferta (domínio isolado vs. entidade).
+      A decisão SEO é independente desse processo — ver nota abaixo.</p>
+    </div>
+  </div>
+
+  <div class="regnote">
+    <div class="ic">⚠</div>
+    <div>
+      <div class="lbl">Nota regulatória · mercado Roménia</div>
+      <p>Afiliados de iGaming necessitam de <b>licença ONJN Clasa II</b>. Os contratos são registados
+      entre a entidade licenciada e os operadores — <b>não se transferem com o domínio</b>.
+      Confirmar com a equipa legal antes de qualquer aquisição.</p>
     </div>
   </div>
 
   <div class="prov">
-    Fontes: GSC (16 meses) · Semrush (AS, indexação, 25,5 mil backlinks) · core updates confirmados — Search Engine Land / Search Engine Roundtable, Mar 2025–Mai 2026.<br>
-    <sup>¹</sup> Nota regulatória: na Roménia, afiliados de iGaming necessitam de licença ONJN Clasa II. Os contratos são registados entre a entidade licenciada e os operadores — não se transferem com o domínio. Verificar com equipa legal antes de qualquer aquisição.
+    Fontes: Google Search Console (16 meses) · Semrush (Authority Score, indexação, 25,5 mil backlinks) ·
+    datas de core updates confirmadas — Search Engine Land / Search Engine Roundtable, Mar 2025–Mai 2026.
   </div>
 
 </div>
