@@ -21,21 +21,25 @@
   h1,h2,h3{font-family:"Fraunces",serif; font-weight:600; letter-spacing:-.01em;}
   .eyebrow{font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); font-weight:600;}
 
+  /* header */
   .head{display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid var(--ink); padding-bottom:10px;}
   .head h1{font-size:24px; line-height:1.05; margin-top:4px;}
   .head .dom{font-size:12px; color:var(--muted); margin-top:3px;}
   .head .meta{text-align:right; font-size:10px; color:var(--muted); line-height:1.8;}
   .head .meta b{color:var(--ink);}
 
+  /* verdict — pure diagnosis, no solution */
   .verdict{display:flex; align-items:center; gap:16px; background:var(--ox-bg); border:1px solid #E7C7C0;
            border-left:5px solid var(--ox); border-radius:7px; padding:12px 16px; margin:12px 0 0;}
   .verdict .badge{font-family:"Fraunces",serif; font-weight:600; font-size:29px; color:var(--ox); white-space:nowrap;}
   .verdict .txt{font-size:12px; color:#5A1C13; line-height:1.6;}
   .verdict .txt b{color:var(--ox);}
 
+  /* grid */
   .grid{display:grid; grid-template-columns:1.05fr .95fr; gap:16px; margin-top:12px;}
   .sec-title{font-size:12.5px; margin-bottom:8px; padding-bottom:4px; border-bottom:1px solid var(--line);}
 
+  /* metric tiles */
   .tiles{display:grid; grid-template-columns:1fr 1fr; gap:7px;}
   .tile{background:#fff; border:1px solid var(--line); border-radius:6px; padding:8px 10px;}
   .tile .k{font-size:9px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:600;}
@@ -43,50 +47,52 @@
   .tile .v.bad{color:var(--ox);}
   .tile .s{font-size:9.5px; color:var(--muted); margin-top:1px;}
 
+  /* chart */
   .chart{background:#fff; border:1px solid var(--line); border-radius:6px; padding:9px 10px 7px; margin-top:7px;}
   .chart .cap{font-size:9px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:600;}
   .chart .sub{font-size:8.5px; color:var(--muted); margin:1px 0 3px;}
   .chart .lbl{display:flex; justify-content:space-between; font-size:9px; color:var(--muted); margin-top:2px;}
 
+  /* timeline */
   .tl-head{font-size:12.5px; margin:11px 0 5px; padding-bottom:4px; border-bottom:1px solid var(--line);}
-  .tl-row{display:grid; grid-template-columns:70px 1fr; gap:8px; font-size:10px; padding:3px 0; border-bottom:1px dashed var(--line); align-items:start;}
+  .tl-row{display:grid; grid-template-columns:70px 1fr; gap:8px; font-size:10px; padding:3px 0;
+          border-bottom:1px dashed var(--line); align-items:start;}
   .tl-row:last-child{border-bottom:0;}
   .tl-row .d{font-weight:600; color:var(--muted); font-size:9px; padding-top:1px;}
   .tl-row .e b{color:var(--ink);}
   .dot{color:var(--ox); font-weight:700;}
   .dot.n{color:var(--muted);}
 
+  /* reasons with inline solution */
   .reason{margin-bottom:9px;}
   .reason h3{font-family:"IBM Plex Sans"; font-weight:600; font-size:11.5px; display:flex; gap:7px; align-items:baseline;}
   .reason h3 .n{font-family:"Fraunces",serif; color:var(--ox); font-size:13px;}
   .reason p{font-size:10.5px; color:#3A3833; margin-top:2px; padding-left:20px; line-height:1.5;}
   .reason p b{color:var(--ink);}
+  .reason .sol{font-size:10px; color:var(--teal); margin-top:3px; padding-left:20px; line-height:1.4;}
+  .reason .sol::before{content:"→ "; font-weight:600;}
 
-  .cond{background:var(--amber-bg); border:1px solid #E8D7AE; border-left:5px solid var(--amber); border-radius:7px; padding:10px 13px; margin-top:10px;}
-  .cond .t{font-family:"Fraunces",serif; font-weight:600; font-size:12px; color:var(--amber); margin-bottom:3px;}
-  .cond p{font-size:10.5px; color:#5C4209; line-height:1.5;}
-  .cond p b{color:var(--amber);}
+  /* "what could change" box — neutral, clearly non-SEO scope */
+  .changebox{background:#F0EDE6; border:1px solid #DDD9CE; border-left:4px solid #9B9387;
+             border-radius:7px; padding:10px 13px; margin-top:11px;}
+  .changebox .t{font-size:9px; font-weight:600; letter-spacing:.10em; text-transform:uppercase;
+                color:#7A7468; margin-bottom:7px;}
+  .changebox ul{list-style:none; padding:0;}
+  .changebox li{font-size:10px; color:#4A4742; line-height:1.45; padding:3px 0 3px 14px;
+                border-bottom:1px dashed #DDD9CE; position:relative;}
+  .changebox li:last-child{border-bottom:0;}
+  .changebox li::before{content:"?"; position:absolute; left:0; top:4px; color:#9B9387; font-weight:700; font-size:8px;}
+  .changebox li b{color:#3A3833;}
 
+  /* recommendation — compact, action first */
   .rec{display:flex; align-items:center; gap:16px; background:var(--teal-bg); border:1px solid #A8D5C4;
        border-left:5px solid var(--teal); border-radius:7px; padding:12px 15px; margin-top:12px;}
   .rbadge{font-family:"Fraunces",serif; font-weight:600; font-size:16px; color:var(--teal); white-space:nowrap;}
   .rtxt{font-size:11.5px; color:#0A4A38; line-height:1.55;}
   .rtxt b{color:var(--teal);}
 
-  .foot{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:11px; padding-top:9px; border-top:2px solid var(--ink);}
-  .foot h3{font-size:11px; margin-bottom:4px;}
-  .foot p{font-size:10.5px; color:#3A3833; line-height:1.5;}
-  .foot p b{color:var(--ink);}
-
-  /* prominent regulatory note */
-  .regnote{display:flex; gap:11px; align-items:flex-start; background:var(--amber-bg); border:1px solid #E8D7AE;
-           border-left:5px solid var(--amber); border-radius:7px; padding:10px 14px; margin-top:12px;}
-  .regnote .ic{font-family:"Fraunces",serif; font-weight:600; font-size:18px; color:var(--amber); line-height:1; flex-shrink:0;}
-  .regnote .lbl{font-size:9px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--amber);}
-  .regnote p{font-size:10.5px; color:#5C4209; line-height:1.5; margin-top:2px;}
-  .regnote p b{color:var(--amber);}
-
-  .prov{margin-top:8px; font-size:8.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:6px; line-height:1.5;}
+  /* sources */
+  .prov{margin-top:9px; font-size:8.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:6px; line-height:1.5;}
 
   @media print{
     body{background:#fff; padding:0;}
@@ -110,18 +116,19 @@
     </div>
   </div>
 
+  <!-- VERDICT: pure diagnosis, no solution -->
   <div class="verdict">
     <div class="badge">NO-GO</div>
     <div class="txt">
-      Do ponto de vista SEO, este domínio <b>não é um veículo recuperável</b> para os objetivos de afiliação.
-      O tráfego colapsou, a audiência residual não tem intenção comercial, e o perfil de backlinks
-      é tóxico. <b>Os contratos existentes renderiam mais num domínio limpo</b> do que em qualquer
-      tentativa de reabilitar este ativo.
+      Do ponto de vista SEO, este domínio <b>não é um veículo recuperável</b> para os objetivos
+      de afiliação. O tráfego colapsou, a audiência residual não tem intenção comercial
+      e o perfil de backlinks é tóxico.
     </div>
   </div>
 
   <div class="grid">
 
+    <!-- LEFT: data -->
     <div>
       <h2 class="sec-title">O que os dados dizem</h2>
       <div class="tiles">
@@ -138,27 +145,29 @@
         <div class="tile">
           <div class="k">Authority Score</div>
           <div class="v">23</div>
-          <div class="s">baixa autoridade (ex.: casa-apostas.com tem 25)</div>
+          <div class="s">baixa autoridade após 7+ anos de operação — equity nunca se consolidou</div>
         </div>
         <div class="tile">
           <div class="k">Páginas indexadas</div>
           <div class="v bad">35%</div>
-          <div class="s">Google descobre o site mas não indexa 60% das páginas (falta de autoridade/relevância)</div>
+          <div class="s">65% rastreadas e não indexadas — sinal de qualidade fraca ao nível do site</div>
         </div>
       </div>
 
       <div class="chart">
         <div class="cap">Cliques orgânicos / mês · Fev 2025 → Mai 2026</div>
-        <div class="sub">Quedas de tráfego coincidem com core updates (estratégias de blackhat passadas, difíceis de reverter).</div>
+        <div class="sub">Faixas sombreadas = janelas de rollout dos core updates Google (períodos de dias a semanas)</div>
         <svg viewBox="0 0 300 84" width="100%" height="80" role="img"
-             aria-label="Curva de cliques a cair de 8945 para 334 ao longo de 16 meses, com quedas a coincidir com os core updates de Março e Dezembro de 2025">
+             aria-label="Curva de cliques a cair de 8945 para 334 em 16 meses, com quedas a coincidir com os core updates de Março e Dezembro de 2025">
+          <!-- faint bands: Jun 2025 (neutral) + Mar 2026 -->
           <rect x="101" y="4" width="12" height="74" fill="#8A5A0B" opacity="0.07"/>
           <rect x="268" y="4" width="10" height="74" fill="#9E2B1C" opacity="0.07"/>
+          <!-- prominent bands: Mar 2025 + Dec 2025 -->
           <rect x="36"  y="4" width="9"  height="74" fill="#9E2B1C" opacity="0.16"/>
           <rect x="203" y="4" width="11" height="74" fill="#9E2B1C" opacity="0.16"/>
           <polyline fill="none" stroke="#9E2B1C" stroke-width="2" stroke-linejoin="round"
             points="10,9 28,10.5 47,41 65,39 84,50 103,45 122,35 141,43 160,51 178,57 197,63 216,69 234,70 253,68 272,71 290,72"/>
-          <circle cx="47" cy="41" r="2.4" fill="#9E2B1C"/>
+          <circle cx="47"  cy="41" r="2.4" fill="#9E2B1C"/>
           <circle cx="216" cy="69" r="2.2" fill="#9E2B1C"/>
           <text x="3"   y="15" font-size="6.5" fill="#9E2B1C" font-family="IBM Plex Sans">Core Mar 2025</text>
           <text x="168" y="80" font-size="6.5" fill="#9E2B1C" font-family="IBM Plex Sans">Core Dez 2025</text>
@@ -175,6 +184,7 @@
       </div>
     </div>
 
+    <!-- RIGHT: diagnosis + solutions + changebox -->
     <div>
       <h2 class="sec-title">Diagnóstico SEO</h2>
 
@@ -182,49 +192,52 @@
         <h3><span class="n">1</span> Tráfego em colapso e sem audiência comercial</h3>
         <p>A queda é <b>algorítmica e ao nível do site</b> — 65% das páginas não indexadas,
         5 updates sem bounce. Do tráfego que resta, <b>apenas 26% tem intenção comercial</b>;
-        68% são free-play e conteúdo informativo. As páginas de afiliação rankeiam entre
-        as posições 20–68 com CTR de 0,3–2,6%.</p>
+        68% são free-play e informativo. Páginas de afiliação em posições 20–68, CTR 0,3–2,6%.</p>
+        <div class="sol">Domínio limpo arranca com arquitetura desenhada para intenção comercial desde o primeiro dia.</div>
       </div>
 
       <div class="reason">
         <h3><span class="n">2</span> Perfil de backlinks tóxico — risco herdado</h3>
         <p><b>~95% dos 25.500 links são spam</b> (redes no Telegram, alguns de sites
-        hackeados), a apontar às páginas de bónus. O Google já regista este histórico.
-        Disavow extenso necessário, sem garantia de reversão — o custo de limpeza
-        soma-se ao custo de recuperação algorítmica.</p>
+        hackeados) a apontar às páginas de bónus. O Google já regista este histórico —
+        disavow extenso necessário, sem garantia de reversão.</p>
+        <div class="sol">Domínio novo parte sem passivo — esforço de link building vai para construir autoridade, não reparar danos.</div>
       </div>
 
       <div class="reason">
         <h3><span class="n">3</span> Arquitetura de conteúdo errada para afiliação</h3>
-        <p>O site foi construído para tráfego de free-play e conteúdo informativo — não para
-        converter afiliados. Para os objetivos da Clever, <b>seria necessário reconstruir a
-        arquitetura de conteúdo desde zero</b>, eliminando qualquer vantagem de "site existente"
-        face a um domínio limpo.</p>
+        <p>O site foi construído para free-play e conteúdo informativo — não para converter
+        afiliados. <b>Reconstruir a arquitetura seria inevitável</b>, eliminando qualquer
+        vantagem de "site existente".</p>
+        <div class="sol">Num domínio limpo, esse mesmo esforço de construção compõe para cima em vez de combater uma demoção ativa.</div>
       </div>
 
+      <!-- out-of-SEO-scope variables -->
+      <div class="changebox">
+        <div class="t">Fora do âmbito SEO · pode mudar a análise</div>
+        <ul>
+          <li><b>Marcas que não trabalham com agências:</b> se o acesso depende da entidade existente, o valor é comercial — o domínio pode ser substituído mantendo a entidade.</li>
+          <li><b>Estrutura da oferta:</b> domínio isolado vs. entidade com contratos ativos — avaliação para equipa comercial/legal.</li>
+          <li><b>Portabilidade dos contratos:</b> mudança de domínio requer aprovação dos operadores — tipicamente rotineiro numa relação estabelecida.</li>
+        </ul>
+      </div>
     </div>
   </div>
 
+  <!-- RECOMMENDATION: action first, effort logic second, no repetition -->
   <div class="rec">
     <div class="rbadge">Recomendação SEO</div>
     <div class="rtxt">
-      <b>Recuperar este domínio custa mais do que começar de novo</b>. Reabilitar exige tudo o que um site novo exige — reconstruir a arquitetura de conteúdo de raiz — e ainda disavow e reversão da demoção algorítmica (6–18 meses, sem garantia). Mais esforço, para um resultado incerto. Num domínio limpo, o mesmo investimento constrói autoridade desde o dia 1, em vez de combater supressão + construir autoridade. O ideal seria usar os contratos de afiliação num domínio limpo. Partir do zero exige menos esforço
-      e tem uma trajetória mais previsível: sem histórico tóxico de backlinks, arquitetura de conteúdos construída para autoridade e conversão.
-    </div>
-  </div>
-
-  <div class="regnote">
-    <div class="ic">⚠</div>
-    <div>
-      <div class="lbl">Nota sobre mercado Roménia</div>
-      <p>Afiliados de iGaming necessitam de uma <b>licença ONJN Clasa II</b>. Os contratos são registados
-      entre a entidade licenciada e os operadores — <b>não se transferem com o domínio</b>.</p>
+      <b>Usar os contratos de afiliação num domínio limpo.</b> Reabilitar este ativo exige
+      reconstruir o conteúdo de raiz e ainda reverter a demoção algorítmica + disavow —
+      mais esforço total, resultado incerto. O mesmo investimento num domínio limpo
+      vai integralmente para construir autoridade e conversão.
     </div>
   </div>
 
   <div class="prov">
     Fontes: Google Search Console (16 meses) · Semrush (Authority Score, indexação, 25,5 mil backlinks) ·
-    datas de core updates confirmadas — Search Engine Land / Search Engine Roundtable, Mar 2025–Mai 2026.
+    datas de core updates — Search Engine Land / Search Engine Roundtable, Mar 2025–Mai 2026.
   </div>
 
 </div>
