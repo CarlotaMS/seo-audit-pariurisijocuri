@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>pariurisijocuri.ro — Auditoria Rápida</title>
+<title>pariurisijocuri.ro — Auditoria SEO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#FAFAF7; --ink:#1B1A17; --muted:#6B6862; --line:#E2DFD7;
@@ -16,78 +16,73 @@
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{background:#ECEAE3; font-family:"IBM Plex Sans",sans-serif; color:var(--ink); line-height:1.5; padding:24px;}
-  .page{width:210mm; margin:0 auto; background:var(--paper); padding:14mm 16mm 13mm;
+  .page{width:210mm; min-height:297mm; margin:0 auto; background:var(--paper); padding:13mm 15mm 11mm;
         box-shadow:0 2px 24px rgba(0,0,0,.12);}
   h1,h2,h3{font-family:"Fraunces",serif; font-weight:600; letter-spacing:-.01em;}
-
-  .head{display:flex; justify-content:space-between; align-items:flex-end;
-        border-bottom:2px solid var(--ink); padding-bottom:10px; margin-bottom:14px;}
-  .head h1{font-size:23px; line-height:1.05; margin-top:3px;}
-  .head .sub{font-size:11.5px; color:var(--muted); margin-top:3px;}
   .eyebrow{font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); font-weight:600;}
+
+  .head{display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid var(--ink); padding-bottom:10px;}
+  .head h1{font-size:24px; line-height:1.05; margin-top:4px;}
+  .head .dom{font-size:12px; color:var(--muted); margin-top:3px;}
   .head .meta{text-align:right; font-size:10px; color:var(--muted); line-height:1.8;}
   .head .meta b{color:var(--ink);}
 
-  /* verdict */
-  .verdict{display:flex; align-items:center; gap:18px; background:var(--ox-bg);
-           border:1px solid #E7C7C0; border-left:5px solid var(--ox);
-           border-radius:7px; padding:14px 18px; margin-bottom:18px;}
-  .vbadge{font-family:"Fraunces",serif; font-weight:600; font-size:32px;
-          color:var(--ox); letter-spacing:-.02em; white-space:nowrap;}
-  .vtxt{font-size:12.5px; color:#5A1C13; line-height:1.6;}
-  .vtxt b{color:var(--ox);}
+  .verdict{display:flex; align-items:center; gap:16px; background:var(--ox-bg); border:1px solid #E7C7C0;
+           border-left:5px solid var(--ox); border-radius:7px; padding:12px 16px; margin:12px 0 0;}
+  .verdict .badge{font-family:"Fraunces",serif; font-weight:600; font-size:29px; color:var(--ox); white-space:nowrap;}
+  .verdict .txt{font-size:12px; color:#5A1C13; line-height:1.6;}
+  .verdict .txt b{color:var(--ox);}
 
-  /* two-col layout */
-  .cols{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-bottom:18px;}
+  .grid{display:grid; grid-template-columns:1.05fr .95fr; gap:16px; margin-top:12px;}
+  .sec-title{font-size:12.5px; margin-bottom:8px; padding-bottom:4px; border-bottom:1px solid var(--line);}
 
-  /* tiles */
-  .tiles{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;}
-  .tile{background:#fff; border:1px solid var(--line); border-radius:6px; padding:9px 11px;}
+  .tiles{display:grid; grid-template-columns:1fr 1fr; gap:7px;}
+  .tile{background:#fff; border:1px solid var(--line); border-radius:6px; padding:8px 10px;}
   .tile .k{font-size:9px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:600;}
-  .tile .v{font-family:"Fraunces",serif; font-size:22px; font-weight:600; line-height:1.1; margin-top:2px;}
+  .tile .v{font-family:"Fraunces",serif; font-size:21px; font-weight:600; line-height:1.1; margin-top:2px;}
   .tile .v.bad{color:var(--ox);}
   .tile .s{font-size:9.5px; color:var(--muted); margin-top:1px;}
 
-  /* mini chart */
-  .chart-wrap{background:#fff; border:1px solid var(--line); border-radius:6px; padding:9px 11px 7px;}
-  .chart-cap{font-size:9px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:3px;}
-  .chart-lbl{display:flex; justify-content:space-between; font-size:9px; color:var(--muted); margin-top:2px;}
+  .chart{background:#fff; border:1px solid var(--line); border-radius:6px; padding:9px 10px 7px; margin-top:7px;}
+  .chart .cap{font-size:9px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:3px;}
+  .chart .lbl{display:flex; justify-content:space-between; font-size:9px; color:var(--muted); margin-top:2px;}
 
-  /* reasons */
-  .reasons-title{font-size:12.5px; font-family:"IBM Plex Sans"; font-weight:600;
-                 border-bottom:1px solid var(--line); padding-bottom:5px; margin-bottom:12px;}
-  .reason{display:flex; gap:10px; margin-bottom:13px;}
-  .reason .n{font-family:"Fraunces",serif; font-weight:600; font-size:18px;
-              color:var(--ox); line-height:1; padding-top:1px; flex-shrink:0;}
-  .reason .body .t{font-size:12px; font-weight:600; color:var(--ink);}
-  .reason .body .d{font-size:11px; color:#4A4742; margin-top:1px; line-height:1.5;}
-  .reason .body .d b{color:var(--ink);}
+  .tl-head{font-size:12.5px; margin:11px 0 5px; padding-bottom:4px; border-bottom:1px solid var(--line);}
+  .tl-row{display:grid; grid-template-columns:62px 1fr; gap:8px; font-size:10px; padding:3px 0; border-bottom:1px dashed var(--line); align-items:start;}
+  .tl-row:last-child{border-bottom:0;}
+  .tl-row .d{font-weight:600; color:var(--muted); font-size:9px; padding-top:1px;}
+  .tl-row .e b{color:var(--ink);}
+  .dot{color:var(--ox); font-weight:700;}
+  .dot.n{color:var(--muted);}
+  .tlnote{font-size:9.5px; color:var(--muted); margin-top:5px; line-height:1.4;}
+  .tlnote b{color:var(--ink);}
 
-  /* exception note */
-  .exc{background:var(--amber-bg); border-left:3px solid var(--amber);
-       border-radius:0 5px 5px 0; padding:8px 12px; margin-top:4px;}
-  .exc p{font-size:10.5px; color:#5C4209; line-height:1.5;}
-  .exc p b{color:var(--amber);}
+  .reason{margin-bottom:9px;}
+  .reason h3{font-family:"IBM Plex Sans"; font-weight:600; font-size:11.5px; display:flex; gap:7px; align-items:baseline;}
+  .reason h3 .n{font-family:"Fraunces",serif; color:var(--ox); font-size:13px;}
+  .reason p{font-size:10.5px; color:#3A3833; margin-top:2px; padding-left:20px; line-height:1.5;}
+  .reason p b{color:var(--ink);}
 
-  /* recommendation */
-  .rec{display:flex; align-items:center; gap:18px; background:var(--teal-bg);
-       border:1px solid #A8D5C4; border-left:5px solid var(--teal);
-       border-radius:7px; padding:14px 18px; margin-bottom:14px;}
-  .rbadge{font-family:"Fraunces",serif; font-weight:600; font-size:17px;
-          color:var(--teal); white-space:nowrap;}
-  .rtxt{font-size:12px; color:#0A4A38; line-height:1.6;}
+  .cond{background:var(--amber-bg); border:1px solid #E8D7AE; border-left:5px solid var(--amber); border-radius:7px; padding:10px 13px; margin-top:10px;}
+  .cond .t{font-family:"Fraunces",serif; font-weight:600; font-size:12px; color:var(--amber); margin-bottom:3px;}
+  .cond p{font-size:10.5px; color:#5C4209; line-height:1.5;}
+  .cond p b{color:var(--amber);}
+
+  .rec{display:flex; align-items:center; gap:16px; background:var(--teal-bg); border:1px solid #A8D5C4;
+       border-left:5px solid var(--teal); border-radius:7px; padding:12px 15px; margin-top:12px;}
+  .rbadge{font-family:"Fraunces",serif; font-weight:600; font-size:16px; color:var(--teal); white-space:nowrap;}
+  .rtxt{font-size:11.5px; color:#0A4A38; line-height:1.55;}
   .rtxt b{color:var(--teal);}
 
-  /* footer */
-  .foot{border-top:2px solid var(--ink); padding-top:10px;}
-  .foot h3{font-size:11.5px; margin-bottom:4px;}
-  .foot p{font-size:11px; color:#3A3833; line-height:1.55;}
+  .foot{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:11px; padding-top:9px; border-top:2px solid var(--ink);}
+  .foot h3{font-size:11px; margin-bottom:4px;}
+  .foot p{font-size:10.5px; color:#3A3833; line-height:1.5;}
   .foot p b{color:var(--ink);}
-  .prov{margin-top:10px; font-size:8.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:6px;}
+  .prov{margin-top:8px; font-size:8.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:6px; line-height:1.5;}
 
   @media print{
     body{background:#fff; padding:0;}
-    .page{box-shadow:none; margin:0;}
+    .page{box-shadow:none; width:auto; min-height:auto; margin:0;}
     @page{size:A4; margin:0;}
   }
 </style>
@@ -97,9 +92,9 @@
 
   <div class="head">
     <div>
-      <div class="eyebrow">Auditoria de domínio · iGaming / Afiliação</div>
-      <h1>pariurisijocuri.ro — vale a pena?</h1>
-      <div class="sub">Afiliado iGaming, mercado Roménia · Jun 2026 · uso interno</div>
+      <div class="eyebrow">Auditoria SEO · Decisão de investimento</div>
+      <h1>pariurisijocuri.ro — vale investir?</h1>
+      <div class="dom">Afiliado iGaming · mercado Roménia · Jun 2026 · uso interno</div>
     </div>
     <div class="meta">
       <div>Dados: <b>GSC 16 m · Semrush</b></div>
@@ -108,108 +103,129 @@
   </div>
 
   <div class="verdict">
-    <div class="vbadge">NO-GO</div>
-    <div class="vtxt">
-      Não alocar recursos. O domínio está em colapso de tráfego, os contratos de afiliação
-      <b>não se transferem com o domínio</b>, e carrega <b>25.500 links de spam</b>
-      já registados pelo Google — herdar o site significa herdar esse histórico.
+    <div class="badge">NO-GO</div>
+    <div class="txt">
+      Do ponto de vista SEO, este domínio <b>não é um veículo recuperável</b> para os objetivos de afiliação.
+      O tráfego colapsou, a audiência residual não tem intenção comercial, e o perfil de backlinks
+      é tóxico. <b>Os contratos existentes renderiam mais num domínio limpo</b> do que em qualquer
+      tentativa de reabilitar este ativo.
     </div>
   </div>
 
-  <div class="cols">
+  <div class="grid">
 
-    <!-- LEFT: numbers -->
     <div>
+      <h2 class="sec-title">O que os dados dizem</h2>
       <div class="tiles">
         <div class="tile">
-          <div class="k">Tráfego orgânico</div>
+          <div class="k">Tráfego orgânico, 16 m</div>
           <div class="v bad">−96%</div>
           <div class="s">8.945 → 334 cliques/mês</div>
         </div>
         <div class="tile">
           <div class="k">Posição média</div>
           <div class="v bad">21 → 43</div>
-          <div class="s">16 meses de queda</div>
+          <div class="s">degradação contínua</div>
         </div>
         <div class="tile">
           <div class="k">Authority Score</div>
           <div class="v">23</div>
-          <div class="s">abaixo da concorrência</div>
+          <div class="s">abaixo da concorrência direta</div>
         </div>
         <div class="tile">
           <div class="k">Páginas indexadas</div>
           <div class="v bad">35%</div>
-          <div class="s">Google rejeita 65%</div>
+          <div class="s">Google rejeita 65% do site</div>
         </div>
       </div>
 
-      <div class="chart-wrap">
-        <div class="chart-cap">Cliques / mês · Fev 2025 → Mai 2026</div>
+      <div class="chart">
+        <div class="cap">Cliques orgânicos / mês · Fev 2025 → Mai 2026</div>
         <svg viewBox="0 0 300 80" width="100%" height="76" role="img"
-          aria-label="Cliques a cair de 8945 para 334 ao longo de 16 meses">
+             aria-label="Curva de cliques a cair de 8945 para 334 ao longo de 16 meses">
           <line x1="47" y1="3" x2="47" y2="72" stroke="#9E2B1C" stroke-width="1" stroke-dasharray="2,2" opacity=".45"/>
           <line x1="197" y1="3" x2="197" y2="72" stroke="#9E2B1C" stroke-width="1" stroke-dasharray="2,2" opacity=".3"/>
           <polyline fill="none" stroke="#9E2B1C" stroke-width="2" stroke-linejoin="round"
             points="10,7 28,8.5 47,39 65,37 84,48 103,43 122,33 141,41 160,49 178,55 197,61 216,67 234,68 253,66 272,69 290,70"/>
           <circle cx="47" cy="39" r="2.4" fill="#9E2B1C"/>
-          <text x="49" y="14" font-size="6.5" fill="#9E2B1C" font-family="IBM Plex Sans">↓ Mar 2025</text>
-          <text x="133" y="72" font-size="6.5" fill="#9E2B1C" font-family="IBM Plex Sans">↓ Dez 2025</text>
+          <text x="49" y="14" font-size="6.5" fill="#9E2B1C" font-family="IBM Plex Sans">↓ Core Mar 2025</text>
+          <text x="133" y="72" font-size="6.5" fill="#9E2B1C" font-family="IBM Plex Sans">↓ Core Dez 2025</text>
         </svg>
-        <div class="chart-lbl"><span>Fev 2025</span><span>Mai 2026</span></div>
+        <div class="lbl"><span>Fev 2025</span><span>Mai 2026</span></div>
+      </div>
+
+      <h2 class="tl-head">4 core updates consecutivos, zero recuperação</h2>
+      <div>
+        <div class="tl-row"><div class="d">Mar 2025</div><div class="e"><span class="dot">▼</span> <b>Hit principal.</b> −49% no mês seguinte. Nunca recuperou.</div></div>
+        <div class="tl-row"><div class="d">Jul 2025</div><div class="e"><span class="dot n">—</span> Update neutro. Sem bounce, ao contrário de muitos pares de mercado.</div></div>
+        <div class="tl-row"><div class="d">Dez 2025</div><div class="e"><span class="dot">▼</span> <b>Segunda queda.</b> Posição 28 → 52.</div></div>
+        <div class="tl-row"><div class="d">Mar–Mai 2026</div><div class="e"><span class="dot">▼</span> Continua a descer. Estado atual: residual.</div></div>
       </div>
     </div>
 
-    <!-- RIGHT: reasons -->
     <div>
-      <div class="reasons-title">Porquê não avançar</div>
+      <h2 class="sec-title">Diagnóstico SEO</h2>
 
       <div class="reason">
-        <div class="n">1</div>
-        <div class="body">
-          <div class="t">Os afiliados não vêm com o domínio</div>
-          <div class="d">Na Roménia, os contratos de afiliação são entre a <b>entidade licenciada e os operadores</b> — registados no regulador ONJN. Receber o domínio não transfere os deals.</div>
-        </div>
+        <h3><span class="n">1</span> Tráfego em colapso e sem audiência comercial</h3>
+        <p>A queda é <b>algorítmica e ao nível do site</b> — 65% das páginas rejeitadas pelo Google,
+        4 updates sem bounce. Do tráfego que resta, <b>apenas 26% tem intenção comercial</b>;
+        68% são free-play e conteúdo informativo. As páginas de afiliação rankeiam entre
+        as posições 20–68 com CTR de 0,3–2,6%.</p>
       </div>
 
       <div class="reason">
-        <div class="n">2</div>
-        <div class="body">
-          <div class="t">Colapso de tráfego sem recuperação à vista</div>
-          <div class="d">Demovido em <b>4 core updates consecutivos</b> (Mar 2025–Mai 2026), sem um único bounce. Recuperar este tipo de demoção leva <b>6–18+ meses, sem garantia</b>.</div>
-        </div>
+        <h3><span class="n">2</span> Perfil de backlinks tóxico — risco herdado</h3>
+        <p><b>~95% dos 25.500 links são spam</b> (redes no Telegram, alguns de sites
+        hackeados), a apontar às páginas de bónus. O Google já regista este histórico.
+        Disavow extenso necessário, sem garantia de reversão — o custo de limpeza
+        soma-se ao custo de recuperação algorítmica.</p>
       </div>
 
       <div class="reason">
-        <div class="n">3</div>
-        <div class="body">
-          <div class="t">Perfil de backlinks tóxico herdado</div>
-          <div class="d"><b>~95% dos 25.500 links são spam</b> (redes de Telegram, sites hackeados). O Google já regista este histórico — qualquer intervenção exige disavow extenso, custo elevado, resultado incerto.</div>
-        </div>
+        <h3><span class="n">3</span> Arquitetura de conteúdo errada para afiliação</h3>
+        <p>O site foi construído para tráfego de free-play e conteúdo informativo — não para
+        converter afiliados. Para os objetivos da Clever, <b>seria necessário reconstruir a
+        arquitetura de conteúdo desde zero</b>, eliminando qualquer vantagem de "site existente"
+        face a um domínio limpo.</p>
       </div>
 
-      <div class="exc">
-        <p><b>Excepção:</b> se a oferta incluir a <b>entidade licenciada + contratos activos</b>, o valor está nesses contratos — mas o domínio deve ser descartado e os contratos migrados para um ativo limpo.</p>
+      <div class="cond">
+        <div class="t">Quanto custaria recuperar este ativo</div>
+        <p>Disavow + recuperação de core update: <b>6–18 meses, sem garantia</b>.
+        Reconstrução da arquitetura de conteúdo: igual ao esforço de um site novo.
+        Num domínio limpo, os primeiros resultados em páginas comerciais chegam
+        <b>em 3–6 meses</b> — com menos risco e sem passivo herdado.</p>
       </div>
     </div>
   </div>
 
   <div class="rec">
-    <div class="rbadge">O que fazer</div>
+    <div class="rbadge">Recomendação SEO</div>
     <div class="rtxt">
-      Para entrar no mercado romeno: <b>negociar contratos directamente com os operadores</b>
-      (Superbet, Betano, NetBet, MaxBet…) para um domínio limpo, sob a
-      <b>licença ONJN da Clever</b>. Menor risco, sem passivo herdado.
+      <b>Usar os contratos de afiliação num domínio limpo.</b> Do ponto de vista SEO,
+      partir do zero supera qualquer recuperação: sem histórico tóxico de backlinks,
+      arquitetura construída para converter desde o primeiro dia, e autoridade
+      desenvolvida para os tópicos certos. O ativo relevante são os contratos — não este domínio.
     </div>
   </div>
 
   <div class="foot">
-    <h3>Próximo passo</h3>
-    <p>Confirmar com o detentor: <b>"A oferta é o domínio isolado, ou inclui a entidade licenciada e os contratos?"</b>
-    Se só o domínio → encerrar. Se incluir a entidade → due diligence jurídica + migrar contratos para domínio limpo.</p>
+    <div>
+      <h3>Próximo passo (SEO)</h3>
+      <p>Definir arquitetura de hub para o domínio limpo: páginas de comparação como produto central,
+      suportadas por conteúdo editorial de funil. <b>Estimativa de primeiros resultados: 3–6 meses.</b></p>
+    </div>
+    <div>
+      <h3>Para equipa comercial / legal</h3>
+      <p>Validar os contratos de afiliação existentes e confirmar a estrutura da oferta
+      (domínio isolado vs. entidade). A decisão SEO é independente desse processo.<sup>¹</sup></p>
+    </div>
   </div>
 
   <div class="prov">
-    Fontes: GSC (16 meses) · Semrush (AS, indexação, 25,5 mil backlinks) · core updates — Search Engine Land, Mar 2025–Mai 2026 · ONJN Clasa II — Chambers / ICLG Gaming Law 2025–26. Validade da licença a confirmar no registo ONJN.
+    Fontes: GSC (16 meses) · Semrush (AS, indexação, 25,5 mil backlinks) · core updates confirmados — Search Engine Land / Search Engine Roundtable, Mar 2025–Mai 2026.<br>
+    <sup>¹</sup> Nota regulatória: na Roménia, afiliados de iGaming necessitam de licença ONJN Clasa II. Os contratos são registados entre a entidade licenciada e os operadores — não se transferem com o domínio. Verificar com equipa legal antes de qualquer aquisição.
   </div>
 
 </div>
